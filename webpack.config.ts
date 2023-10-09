@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './client/index.tsx',
+  entry: './client/index.mjs',
   mode: process.env.NODE_ENV,
   resolve: {
     extensions: ['.tsx', '.ts', '.jsx', '.js'],

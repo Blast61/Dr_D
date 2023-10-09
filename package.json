@@ -2,16 +2,36 @@
   "name": "dr_d",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "NODE_ENV=development nodemon server/server.ts & NODE_ENV=development webpack serve --open --hot"
+    "test": "jest --verbose --coverage",
+    "start": "NODE_ENV=production nodemon server/server.js",
+    "build": "NODE_ENV=production webpack",
+    "dev": "NODE_ENV=development nodemon server/server.js & NODE_ENV=development webpack serve --open --hot",
+    "devc": "NODE_ENV=development concurrently \"webpack serve --open\" \"nodemon server/server.js\"",
+    "devServer": "NODE_ENV=production nodemon server/server.js"
+  },
+  "repository": {
+    "type": "module",
+    "url": "https://github.com/Blast61/Dr_D.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.18.2",
+    "node": "^20.7.0",
     "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.16.0",
     "webpack": "^5.88.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.0",
+    "@babel/node": "^7.22.19",
+    "@babel/preset-env": "^7.22.20",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "nodemon": "^3.0.1"
   }
 }
