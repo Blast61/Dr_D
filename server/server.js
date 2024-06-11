@@ -1,15 +1,22 @@
-const express = require('express');
+import express from 'express';
 const app = express();
 const PORT = 3000
-const cookieParser = require('cookie-parser');
-const path = require('path');
 
+import path from 'path';
+import cors from 'cors'
+import cookieParser from 'cookie-parser';
 
+//Parse the incoming req body
 app.use(express.json());
+//Cookie Parser
 app.use(cookieParser());
-app.use(express.urlencoded());
 
-app.use(express.static('assets'))
+app.use(express.urlencoded({ extended: true }));
+
+//serve static file
+app.use(express.static(path.join(__dirname, 'src')))
+
+
 
 //404 Handler
 app.use((req, res, next) =>{
